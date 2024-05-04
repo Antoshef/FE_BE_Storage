@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+.send-box {
+  max-width: 800px;
+  min-width: max-content;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+}
+
+.invoiceBox__button {
+  cursor: pointer;
+}
+.send-box table {
+  width: 100%;
+  line-height: inherit;
+  text-align: left;
+}
+
+.send-box table td {
+  padding: 5px;
+  vertical-align: top;
+}
+.send-box table tr td:nth-child(2) {
+  text-align: right;
+}
+
+.title img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.invoiceBox__error {
+  color: red;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.invoiceBox__zero-amount {
+  color: red;
+}
+
+p,
+td {
+  cursor: default;
+}
+
+.invoiceBox__companyData {
+  margin-top: 1rem;
+}
+.truncate {
+  display: inline-block;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.invoice__item {
+  cursor: pointer;
+}
+
+.invoice__button {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.invoice__button > button {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem;
+  background-color: rgb(31 41 55 / 0.9);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.invoice__button > button:hover {
+  background-color: rgb(31 41 55 / 0.8);
+}
+
+.button {
+  padding: 0 0.5rem;
+  background-color: rgb(31 41 55 / 0.9);
+  color: rgb(233, 233, 233);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.button:hover {
+  background-color: rgb(31 41 55 / 0.8);
+}
+
+.input-field {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-field:hover {
+  border: 1px solid #8a8a8a;
+}
+
+/* Sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: rgb(31 41 55 / 0.9);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(31 41 55 / 0.9);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current" // Or specific version, e.g., "node": "14"
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ]
+}
