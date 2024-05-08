@@ -2,13 +2,14 @@
   "compilerOptions": {
     "target": "ES2023",
     "lib": ["dom", "dom.iterable", "ES2023"],
-    "baseUrl": "app/",
+    "baseUrl": "./src",
     "allowJs": true,
     "noEmit": false,
     "module": "commonjs",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "outDir": "dist",
     "jsx": "preserve",
     "incremental": true,
     "experimentalDecorators": true,
@@ -23,6 +24,6 @@
     "alwaysStrict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
   }
 }

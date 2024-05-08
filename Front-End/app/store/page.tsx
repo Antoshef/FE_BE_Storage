@@ -163,7 +163,7 @@ export default function Store() {
 
   const onEditSubmit = async (product: StoreProductData) => {
     try {
-      await fetch("/api/get-storage", {
+      await fetch("/api/store", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -210,7 +210,7 @@ export default function Store() {
         return;
       }
 
-      const products = await fetchJson<StoreProductData[]>("/api/get-storage");
+      const products = await fetchJson<StoreProductData[]>("/api/store");
       if (!products.data) {
         setMessage({
           text: "Error fetching products: No data returned",
@@ -240,7 +240,7 @@ export default function Store() {
 
   useEffect(() => {
     setLoading(true);
-    fetchJson<StoreProductData[]>("/api/get-storage")
+    fetchJson<StoreProductData[]>("/api/store")
       .then((res) => {
         const { data } = res;
         setProducts(data);
@@ -261,6 +261,7 @@ export default function Store() {
 
   useEffect(() => {
     const map = new Map<string, StoreProductData>();
+    if (!products) return;
     setFilteredProducts(() =>
       products.map((p) => {
         setProductMap(map.set(`${p.code}-${p.package}`, p));

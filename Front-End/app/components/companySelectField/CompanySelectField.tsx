@@ -1,14 +1,8 @@
 import { Company } from "@/create/invoice/constants";
 import { Menu, Transition } from "@headlessui/react";
-import Image from "next/image";
 import { Fragment, useContext, useRef } from "react";
 import { classNames } from "../header/header";
 import { CompanyContext } from "../providers/companyProvider";
-
-const satecma =
-  "https://satecma.bg/wp-content/uploads/2024/04/favico-transparent.png";
-const eko =
-  "https://satecma.bg/wp-content/uploads/2024/04/eco-home-group-logo-square.png";
 
 export const CompanySelectField = () => {
   const { company, setCompany } = useContext(CompanyContext);
@@ -30,13 +24,15 @@ export const CompanySelectField = () => {
         <Menu.Button className="overflow-hidden relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
           <span className="absolute -inset-1.5" />
           <span className="sr-only">Open company menu</span>
-          <Image
-            width={40}
-            height={40}
+          <img
             alt={`${company}-logo`}
-            src={company === Company.satecma ? satecma : eko}
+            src={
+              company === Company.satecma
+                ? "/favico-transparent.png"
+                : "/eco-home-logo-square.png"
+            }
             onClick={handleClickLogo}
-            className="w-full h-full object-contain"
+            className="object-contain w-12 h-12"
           />
         </Menu.Button>
       </div>
