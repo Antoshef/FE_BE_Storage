@@ -4,7 +4,7 @@ import defaultTheme from "tailwindcss/defaultTheme";
 const config: Config = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/global.css",
+    "./src/globals.css",
   ],
   theme: {
     extend: {

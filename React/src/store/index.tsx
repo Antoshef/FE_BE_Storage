@@ -162,7 +162,7 @@ export default function Store() {
 
   const onEditSubmit = async (product: StoreProductData) => {
     try {
-      await fetch("/api/store", {
+      await fetch("/api/store-single", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -1,13 +1,14 @@
 import { Injectable } from "@nestjs/common";
 import { StoreProductData } from "./interfaces/store.interface";
 import { DatabaseService } from "database/database.service";
+import { Item } from "create/interfaces/create.interface";
 
 @Injectable()
 export class StoreService {
   private products: StoreProductData[] = [];
   constructor(private databaseService: DatabaseService) {}
 
-  async update(product: StoreProductData) {
+  async updateSingle(product: StoreProductData) {
     if (!product.name || !product.code || !product.unit) {
       throw new Error("Missing required product fields");
     }
@@ -20,6 +21,26 @@ export class StoreService {
       product.package,
     ];
     await this.databaseService.queryAsync<StoreProductData>(query, values);
+  }
+
+  async update(items: Item[]) {
+    if (!items || items.length === 0) {
+      throw new Error("No items provided");
+    }
+    const filteredItems = items.filter(
+      (item) => item.quantity > 0 && item.code !== "0"
+    );
+    const query = `UPDATE products_storage SET quantity = quantity - ? WHERE code = ? AND package = ?`;
+    for (const item of filteredItems) {
+      if (!item.quantity || !item.code || !item.currentPackage) {
+        throw new Error("Missing required fields");
+      }
+      await this.databaseService.queryAsync(query, [
+        item.quantity,
+        item.code,
+        item.currentPackage,
+      ]);
+    }
   }
 
   create(product: StoreProductData) {

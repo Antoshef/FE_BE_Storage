@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import CompanyProvider from "./components/providers/companyProvider";
 import Header from "./components/header/header";
-import "./output.css";
+import "./globals.css";
 
 const WrapperComponent = ({ children }: { children: React.ReactNode }) => {
   return (

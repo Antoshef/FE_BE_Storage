@@ -80,10 +80,10 @@ export class GenerateInvoiceService {
       month: "long",
     });
 
-    createDir("sent");
-    createDir("sent/invoices");
-    createDir(`sent/invoices/${currentMonth}`);
-    const filePath = path.join("/", `sent/invoices/${currentMonth}`, fileName);
+    await createDir("sent");
+    await createDir("sent/invoices");
+    await createDir(`sent/invoices/${currentMonth}`);
+    const filePath = path.join(`sent/invoices/${currentMonth}/`, fileName);
     const pdfBuffer = await convertHTMLToPDF(html, css);
     const modifiedPdfBuffer = pdfBuffer && (await addTextToPDF(pdfBuffer));
 

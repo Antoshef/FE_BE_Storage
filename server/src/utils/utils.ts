@@ -30,9 +30,9 @@ export const writeDotEnv = () => {
   fs.writeFileSync("env.d.ts", typeDefContent);
 };
 
-export const createDir = (dirPath: string) => {
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath);
+export const createDir = async (dirPath: string) => {
+  if (await !fs.existsSync(dirPath)) {
+    await fs.mkdirSync(dirPath);
     console.log(`Directory ${dirPath} created`);
   }
 };
