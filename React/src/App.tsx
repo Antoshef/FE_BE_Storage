@@ -1,7 +1,11 @@
 import Create from "./create";
 import Spedition from "./spedition";
 import Store from "./store";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import CompanyProvider from "./components/providers/companyProvider";
 import Header from "./components/header/header";
 import "./output.css";
@@ -16,6 +20,10 @@ const WrapperComponent = ({ children }: { children: React.ReactNode }) => {
 };
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/store" replace />,
+  },
   {
     path: "/store",
     element: (

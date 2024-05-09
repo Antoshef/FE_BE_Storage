@@ -4,6 +4,8 @@ import { LoggerMiddleware } from "./logger.middleware";
 import { ConfigModule } from "@nestjs/config";
 import { DatabaseModule } from "database/database.module";
 import { CreateModule } from "create/create.module";
+import { ServeStaticModule } from "@nestjs/serve-static";
+import { join } from "path";
 
 @Module({
   imports: [
@@ -14,6 +16,10 @@ import { CreateModule } from "create/create.module";
     }),
     DatabaseModule,
     CreateModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, "..", "store"),
+      exclude: ["/api*"],
+    }),
   ],
 })
 export class AppModule implements NestModule {

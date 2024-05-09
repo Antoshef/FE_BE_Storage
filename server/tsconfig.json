@@ -10,7 +10,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "outDir": "dist",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -24,6 +24,6 @@
     "alwaysStrict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true
   }
 }

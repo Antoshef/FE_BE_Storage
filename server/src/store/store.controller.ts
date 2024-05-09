@@ -2,7 +2,6 @@ import { Body, Controller, Get, Post, Put, Res } from "@nestjs/common";
 import { Response } from "express";
 import { StoreService } from "./store.service";
 import { StoreProductData } from "./interfaces/store.interface";
-import { Item } from "create/interfaces/create.interface";
 
 @Controller("/api/store")
 export class StoreController {
@@ -29,7 +28,7 @@ export class StoreController {
   }
 
   @Post()
-  async create(@Body() request: Request): Promise<string> {
+  async create(@Body() request: any): Promise<string> {
     console.log("POST request received");
     return "This action adds a new store";
   }

@@ -78,8 +78,7 @@ export const InvoiceWrapper = ({ data }: InvoiceWrapperProps) => {
     const css = await fetch("/globals.css").then((res) => res.text());
     const res = await POSTinvoiceData(invoiceData);
     if (res.status !== 200) return;
-    const ress = await UPDATEstoreData(items);
-    if (ress.status !== 200) return;
+    items && await UPDATEstoreData(items);
     await POSTinvoicePdf(
       bcc,
       email,
