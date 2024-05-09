@@ -51,6 +51,7 @@ export default function Header() {
   const handleChange = (path: string) => {
     setValue(path);
     navigate(path);
+    window.location.hash = path;
     setOpenDropdown(null);
   };
 
